@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapiDoc API</title>
+    <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        rapi-doc {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <rapi-doc 
+        spec-url="/v3/api-docs" 
+        theme="dark"
+        render-style="read"
+        allow-try="true"
+        allow-server-selection="true"
+        show-header="true"
+        show-method-in-nav-bar="as-colored-block"
+        primary-color="#E76F00" 
+        bg-color="#1e1e1e"
+        text-color="#ffffff"
+        nav-bg-color="#121212"
+        nav-text-color="#E76F00"
+        nav-hover-bg-color="#333333"
+        nav-hover-text-color="#ffffff"
+        font-size="large"
+        regular-font="Arial, sans-serif"
+        mono-font="Courier New, monospace">
+    </rapi-doc>
+</body>
+</html>
