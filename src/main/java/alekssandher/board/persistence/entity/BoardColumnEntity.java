@@ -13,4 +13,6 @@ public class BoardColumnEntity {
 
     @JsonBackReference
     private BoardEntity board = new BoardEntity();
+
+    
 }

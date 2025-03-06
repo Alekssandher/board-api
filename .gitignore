@@ -34,3 +34,6 @@ build/
 
 # Ambient variables 
 .env
+
+# log
+liquidbase.log
