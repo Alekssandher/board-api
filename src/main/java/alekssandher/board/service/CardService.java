@@ -7,13 +7,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-import javax.smartcardio.CardException;
-
 import org.springframework.stereotype.Service;
 
 import alekssandher.board.dto.board.BoardColumnInfoDto;
 import alekssandher.board.dto.card.CardDetailsDto;
-import alekssandher.board.exception.dtos.*;
+import alekssandher.board.exception.exceptions.Exceptions.*;
 import alekssandher.board.persistence.dao.CardDao;
 import alekssandher.board.persistence.entity.CardEntity;
 
@@ -26,14 +24,14 @@ public class CardService {
         this.connection = connection;
     }
 
-    public void moveCard(final Long cardId, final List<BoardColumnInfoDto> boardColumnsInfo) throws SQLException, EntityNotFoundException, CardFinishedException
+    public void moveCard(final Long cardId, final List<BoardColumnInfoDto> boardColumnsInfo) throws SQLException, NotFoundException, BadRequestException
     {
         try {
             
             CardDao dao = new CardDao(connection);
             Optional<CardDetailsDto> optional = dao.findByID(cardId);
             
-            CardDetailsDto dto = optional.orElseThrow(() -> new EntityNotFoundException("The card with id: %s was not found.".formatted(cardId)));
+            CardDetailsDto dto = optional.orElseThrow(() -> new NotFoundException("The card with id: %s was not found.".formatted(cardId)));
             
             BoardColumnInfoDto currentColumn = boardColumnsInfo.stream()
                         .filter(bc -> bc.id().equals(dto.columnId()))
@@ -42,7 +40,7 @@ public class CardService {
             
             if(currentColumn.kind().equals(FINAL))
             {
-                throw new CardFinishedException("The card provided is finalized.");
+                throw new BadRequestException("The card provided is finalized.");
             }
             BoardColumnInfoDto nextColumn = boardColumnsInfo.stream()
                 .filter(bc -> bc.order() == currentColumn.order() + 1 )
@@ -77,14 +75,14 @@ public class CardService {
         return dao.findByID(id);
     }
 
-    public void cancel(final Long cardId, final Long cancelColumnId) throws SQLException, EntityNotFoundException
+    public void cancel(final Long cardId, final Long cancelColumnId) throws SQLException, NotFoundException
     {
         try {
             
             CardDao dao = new CardDao(connection);
             Optional<CardDetailsDto> optional = dao.findByID(cardId);
             
-            CardDetailsDto dto = optional.orElseThrow(() -> new EntityNotFoundException("The card with id: %s was not found.".formatted(cardId)));
+            CardDetailsDto dto = optional.orElseThrow(() -> new NotFoundException("The card with id: %s was not found.".formatted(cardId)));
             
             if (dto.blocked())
             {

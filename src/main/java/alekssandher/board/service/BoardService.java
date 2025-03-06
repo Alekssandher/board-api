@@ -11,6 +11,7 @@ import alekssandher.board.dto.board.BoardColumnDto;
 import alekssandher.board.dto.board.BoardDetailsDto;
 import alekssandher.board.dto.board.BoardRequestDto;
 import alekssandher.board.dto.board.BoardResponseDto;
+import alekssandher.board.exception.exceptions.Exceptions.NotFoundException;
 import alekssandher.board.persistence.dao.BoardColumnDao;
 import alekssandher.board.persistence.dao.BoardDao;
 import alekssandher.board.persistence.entity.BoardColumnEntity;
@@ -25,7 +26,7 @@ public class BoardService {
         this.connection = connection;
     }
 
-    public Optional<BoardResponseDto> findById(final Long id) throws SQLException
+    public Optional<BoardResponseDto> findById(final Long id) throws SQLException, NotFoundException
     {
         BoardDao boardDao = new BoardDao(connection);
         BoardColumnDao boardColumnDao = new BoardColumnDao(connection);
@@ -40,8 +41,9 @@ public class BoardService {
             boardEntity.setBoardColumns(boardColumnDao.findById(boardEntity.getId()));
             return Optional.of(boardEntity.toDto());
         }
+        else throw new NotFoundException("This board was not found.");
         
-        return Optional.empty();
+       
     }
     public Optional<BoardDetailsDto> findByIdWithDetails(final Long id) throws SQLException
     {

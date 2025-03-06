@@ -1,24 +1,36 @@
 package alekssandher.board.exception;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import alekssandher.board.exception.dtos.*;
+import alekssandher.board.exception.dto.ErrorDetails;
+import alekssandher.board.exception.dto.ErrorResponses.*;
+
+import alekssandher.board.exception.exceptions.Exceptions.*;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class CardExceptionHandler
 {
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<String> handleCustomException(EntityNotFoundException ex)
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleCustomException(NotFoundException ex, HttpServletRequest request)
     {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        ErrorDetails error = new NotFound(request, "Not Found", ex.getMessage());
+        return ResponseEntity.status(error.getStatus()).body(error);
     }
 
-    @ExceptionHandler(CardFinishedException.class)
-    public ResponseEntity<String> handleCustomException(CardFinishedException ex)
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorDetails> handleCustomException(BadRequestException ex, HttpServletRequest request)
     {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
+        ErrorDetails error = new BadRequest(request, "Bad Request", ex.getMessage());
+        return ResponseEntity.status(error.getStatus()).body(error);
+    }
+
+    @ExceptionHandler(InternalErrorException.class)
+    public ResponseEntity<ErrorDetails> handleCustomException(InternalErrorException ex, HttpServletRequest request)
+    {
+        ErrorDetails error = new InternalErrorCustom(request);
+        return ResponseEntity.status(error.getStatus()).body(error);
     }
 }
