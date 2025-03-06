@@ -7,20 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import alekssandher.board.dto.board.BoardResponseDto;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
 public class BoardEntity {
     private Long id;
     private String name;
 
-    @JsonManagedReference
-    @ToString.Exclude
     private List<BoardColumnEntity> boardColumns = new ArrayList<>();
 
+    public BoardResponseDto toDto()
+    {
+        var dto = new BoardResponseDto(this.id, this.name);
+        return dto;
+    }
     public BoardColumnEntity getInitialColumn()
     {   
         return getFilteredColumn(bc -> bc.getKind().equals(INITIAL));
@@ -37,4 +38,6 @@ public class BoardEntity {
             .filter(filter)
             .findFirst().orElseThrow();
     }
+
+
 }

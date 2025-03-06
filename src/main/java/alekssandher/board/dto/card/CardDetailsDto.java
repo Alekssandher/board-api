@@ -1,4 +1,4 @@
-package alekssandher.board.dto;
+package alekssandher.board.dto.card;
 
 import java.time.OffsetDateTime;
 

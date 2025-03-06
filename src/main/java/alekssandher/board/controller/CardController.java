@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import alekssandher.board.dto.BoardColumnInfoDto;
-import alekssandher.board.dto.CardDetailsDto;
+import alekssandher.board.dto.board.BoardColumnInfoDto;
+import alekssandher.board.dto.card.CardDetailsDto;
+import alekssandher.board.dto.card.CardRequestDto;
 import alekssandher.board.exception.dtos.CardFinishedException;
 import alekssandher.board.exception.dtos.EntityNotFoundException;
 import alekssandher.board.persistence.entity.CardEntity;
@@ -47,12 +49,12 @@ public class CardController {
         return ResponseEntity.ok("Moved");
     }
     @PostMapping
-    public ResponseEntity<CardEntity> create(@RequestBody final CardEntity cardEntity) throws SQLException
+    public ResponseEntity<String> create(@RequestBody final CardRequestDto dto) throws SQLException
     {
-        Optional<CardEntity> result = service.insert(cardEntity);
-       
-        return result.map(ResponseEntity::ok)
-                           .orElseGet(() -> ResponseEntity.badRequest().build());
+        Optional<CardEntity> result = service.insert(dto.toEntity());
+        
+        System.out.println(result);
+        return ResponseEntity.ok("Created");
     }
     @GetMapping("{id}")
     public ResponseEntity<Optional<CardDetailsDto>> findById(@PathVariable final long id) throws SQLException

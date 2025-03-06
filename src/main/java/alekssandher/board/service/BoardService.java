@@ -7,8 +7,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import alekssandher.board.dto.BoardColumnDto;
-import alekssandher.board.dto.BoardDetailsDto;
+import alekssandher.board.dto.board.BoardColumnDto;
+import alekssandher.board.dto.board.BoardDetailsDto;
+import alekssandher.board.dto.board.BoardRequestDto;
+import alekssandher.board.dto.board.BoardResponseDto;
 import alekssandher.board.persistence.dao.BoardColumnDao;
 import alekssandher.board.persistence.dao.BoardDao;
 import alekssandher.board.persistence.entity.BoardColumnEntity;
@@ -23,7 +25,7 @@ public class BoardService {
         this.connection = connection;
     }
 
-    public Optional<BoardEntity> findById(final Long id) throws SQLException
+    public Optional<BoardResponseDto> findById(final Long id) throws SQLException
     {
         BoardDao boardDao = new BoardDao(connection);
         BoardColumnDao boardColumnDao = new BoardColumnDao(connection);
@@ -36,7 +38,7 @@ public class BoardService {
             BoardEntity boardEntity = optional.get();
            
             boardEntity.setBoardColumns(boardColumnDao.findById(boardEntity.getId()));
-            return Optional.of(boardEntity);
+            return Optional.of(boardEntity.toDto());
         }
         
         return Optional.empty();
@@ -63,8 +65,10 @@ public class BoardService {
     }
 
 
-    public BoardEntity insert(final BoardEntity entity) throws SQLException
+    public BoardResponseDto insert(final BoardRequestDto dto) throws SQLException
     {
+        BoardEntity entity = dto.toEntity();
+
         BoardDao dao = new BoardDao(connection);
         BoardColumnDao columnDao = new BoardColumnDao(connection);
         try {
@@ -85,7 +89,7 @@ public class BoardService {
             throw ex;
         }
 
-        return entity;
+        return entity.toDto();
     }
     public boolean delete(final long id) throws SQLException
     {

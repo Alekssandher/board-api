@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.StatementImpl;
 
-import alekssandher.board.dto.BoardColumnDto;
+import alekssandher.board.dto.board.BoardColumnDto;
 import alekssandher.board.persistence.entity.BoardColumnEntity;
 import static alekssandher.board.persistence.entity.BoardColumnEnum.findByName;
 

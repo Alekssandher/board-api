@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import alekssandher.board.persistence.entity.BoardEntity;
+import alekssandher.board.dto.board.BoardRequestDto;
+import alekssandher.board.dto.board.BoardResponseDto;
 import alekssandher.board.service.BoardService;
 
 @RestController
@@ -27,19 +28,19 @@ public class BoardController {
     }
     
     @GetMapping("{id}")
-    public ResponseEntity<Optional<BoardEntity>> findById(@PathVariable Long id) throws SQLException
+    public ResponseEntity<Optional<BoardResponseDto>> findById(@PathVariable Long id) throws SQLException
     {
-        Optional<BoardEntity> result = boardService.findById(id);
+        Optional<BoardResponseDto> result = boardService.findById(id);
 
         if(!result.isPresent()) return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(result);
     }
     @PostMapping
-    public ResponseEntity<BoardEntity> create(@RequestBody BoardEntity boardEntity) throws SQLException
+    public ResponseEntity<BoardResponseDto> create(@RequestBody BoardRequestDto dto) throws SQLException
     {
-        BoardEntity result = boardService.insert(boardEntity);
-
+        BoardResponseDto result = boardService.insert(dto);
+        System.out.println(result);
         return ResponseEntity.ok(result);
     }
 

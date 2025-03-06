@@ -11,8 +11,8 @@ import javax.smartcardio.CardException;
 
 import org.springframework.stereotype.Service;
 
-import alekssandher.board.dto.BoardColumnInfoDto;
-import alekssandher.board.dto.CardDetailsDto;
+import alekssandher.board.dto.board.BoardColumnInfoDto;
+import alekssandher.board.dto.card.CardDetailsDto;
 import alekssandher.board.exception.dtos.*;
 import alekssandher.board.persistence.dao.CardDao;
 import alekssandher.board.persistence.entity.CardEntity;
@@ -59,7 +59,7 @@ public class CardService {
     public Optional<CardEntity> insert(final CardEntity cardEntity) throws SQLException
     {
         try {
-            System.out.println(cardEntity);
+            
             CardDao dao = new CardDao(connection);
             dao.insert(cardEntity);
             connection.commit();

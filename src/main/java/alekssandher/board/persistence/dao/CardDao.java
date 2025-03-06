@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import com.mysql.cj.jdbc.StatementImpl;
 
-import alekssandher.board.dto.CardDetailsDto;
+import alekssandher.board.dto.card.CardDetailsDto;
 import alekssandher.board.persistence.entity.CardEntity;
 
 import static alekssandher.board.converters.OffsetDateTimeConverter.toOffsetDateTime;
@@ -25,7 +25,7 @@ public class CardDao {
     public Optional<CardEntity> insert(final CardEntity entity) throws SQLException
     {
     
-        String sql = "INSERT INTO CARDS (title, description, board_column_id) values (?, ?, ?);";
+        String sql = "INSERT INTO CARDS (title, description, board_column_id) values (?, ?, ?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             int i = 1;
             statement.setString(i ++, entity.getTitle());
