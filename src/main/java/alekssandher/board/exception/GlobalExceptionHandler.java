@@ -11,7 +11,7 @@ import alekssandher.board.exception.exceptions.Exceptions.*;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
-public class CardExceptionHandler
+public class GlobalExceptionHandler
 {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorDetails> handleCustomException(NotFoundException ex, HttpServletRequest request)
@@ -31,6 +31,13 @@ public class CardExceptionHandler
     public ResponseEntity<ErrorDetails> handleCustomException(InternalErrorException ex, HttpServletRequest request)
     {
         ErrorDetails error = new InternalErrorCustom(request);
+        return ResponseEntity.status(error.getStatus()).body(error);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorDetails> handleCustomException(ForbiddenException ex, HttpServletRequest request)
+    {
+        ErrorDetails error = new Forbidden(request, ex.getMessage());
         return ResponseEntity.status(error.getStatus()).body(error);
     }
 }

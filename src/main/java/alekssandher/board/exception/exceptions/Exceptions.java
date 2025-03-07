@@ -12,6 +12,17 @@ public class Exceptions {
         }
     }
 
+    public static class ForbiddenException extends Exception {
+        public ForbiddenException(String message) {
+            super(message);
+        }
+
+        public ForbiddenException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
+
     public static class NotFoundException extends Exception {
         public NotFoundException(String message) {
             super(message);

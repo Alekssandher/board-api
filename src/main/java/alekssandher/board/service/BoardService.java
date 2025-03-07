@@ -41,9 +41,9 @@ public class BoardService {
             boardEntity.setBoardColumns(boardColumnDao.findById(boardEntity.getId()));
             return Optional.of(boardEntity.toDto());
         }
-        else throw new NotFoundException("This board was not found.");
         
-       
+        
+        return Optional.empty();
     }
     public Optional<BoardDetailsDto> findByIdWithDetails(final Long id) throws SQLException
     {

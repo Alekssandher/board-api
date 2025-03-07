@@ -75,7 +75,7 @@ public class CardService {
         return dao.findByID(id);
     }
 
-    public void cancel(final Long cardId, final Long cancelColumnId) throws SQLException, NotFoundException
+    public void cancel(final Long cardId, final Long cancelColumnId) throws SQLException, NotFoundException, ForbiddenException
     {
         try {
             
@@ -88,7 +88,7 @@ public class CardService {
             {
                 String message = "The card: %s is blocked and can't be moved, unblock it first.".formatted(cardId);
 
-                throw new IllegalArgumentException(message);
+                throw new ForbiddenException(message);
             }
 
             dao.moveToColumn(cancelColumnId, cardId);

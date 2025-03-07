@@ -1,10 +1,10 @@
-[2m2025-03-06T16:49:37.607-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021416.sql
-[2m2025-03-06T16:49:37.624-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021816.sql
-[2m2025-03-06T16:49:37.627-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021831.sql
-[2m2025-03-06T16:49:37.630-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021852.sql
-[2m2025-03-06T16:49:38.032-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading from boards.DATABASECHANGELOG
+[2m2025-03-07T10:13:34.911-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021416.sql
+[2m2025-03-07T10:13:34.929-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021816.sql
+[2m2025-03-07T10:13:34.933-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021831.sql
+[2m2025-03-07T10:13:34.936-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading resource: db/changeLog/migrations/db.changelog-202503021852.sql
+[2m2025-03-07T10:13:35.142-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading from boards.DATABASECHANGELOG
 Database is up to date, no changesets to execute
-[2m2025-03-06T16:49:38.159-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading from boards.DATABASECHANGELOG
+[2m2025-03-07T10:13:35.198-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.changelog                     [0;39m [2m:[0;39m Reading from boards.DATABASECHANGELOG
 
 UPDATE SUMMARY
 Run:                          0
@@ -13,11 +13,11 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-[2m2025-03-06T16:49:38.171-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m UPDATE SUMMARY
-[2m2025-03-06T16:49:38.171-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Run:                          0
-[2m2025-03-06T16:49:38.171-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Previously run:               4
-[2m2025-03-06T16:49:38.172-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Filtered out:                 0
-[2m2025-03-06T16:49:38.172-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m -------------------------------
-[2m2025-03-06T16:49:38.172-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Total change sets:            4
-[2m2025-03-06T16:49:38.173-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Update summary generated
-[2m2025-03-06T16:49:38.175-03:00[0;39m [32m INFO[0;39m [35m250282[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.command                       [0;39m [2m:[0;39m Command execution complete
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m UPDATE SUMMARY
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Run:                          0
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Previously run:               4
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Filtered out:                 0
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m -------------------------------
+[2m2025-03-07T10:13:35.210-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Total change sets:            4
+[2m2025-03-07T10:13:35.212-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.util                          [0;39m [2m:[0;39m Update summary generated
+[2m2025-03-07T10:13:35.213-03:00[0;39m [32m INFO[0;39m [35m284895[0;39m [2m--- [board] [           main] [0;39m[36mliquibase.command                       [0;39m [2m:[0;39m Command execution complete

@@ -29,6 +29,18 @@ public class ErrorResponses {
         }
     }
     
+    public static class Forbidden extends ErrorDetails {
+        public Forbidden(HttpServletRequest request, String detail) {
+            super(
+                HttpStatus.FORBIDDEN.value(),
+                "Forbidden",
+                detail != null ? detail : "Operation Not Authorized",
+                "https://datatracker.ietf.org/doc/html/rfc9110#status.403",
+                request.getRequestURI()
+            );
+        }
+    }
+
     public static class NotFound extends ErrorDetails {
         public NotFound(HttpServletRequest request, String title, String detail) {
             super(
